@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GxWelcome Anime Style</title>
+<title>GxWelcome - Premium Anime Dialog</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 body {
   margin: 0;
   height: 100vh;
-  background: radial-gradient(circle at 50% 30%, #0f172a 0%, #020617 100%);
+  background: linear-gradient(160deg, #0b132b 0%, #1a1a40 50%, #3b0a45 100%);
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
@@ -28,33 +28,35 @@ canvas {
 .dialog {
   position: relative;
   z-index: 1;
-  width: 360px;
-  background: rgba(31, 41, 55, 0.9);
+  width: 350px;
+  background: rgba(25, 25, 60, 0.85);
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(16,185,129,0.25), 0 0 50px rgba(56,189,248,0.2);
-  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(147, 51, 234, 0.4), 0 0 60px rgba(56, 189, 248, 0.3);
+  padding: 28px;
   text-align: center;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
   animation: fadeIn 0.8s ease;
 }
 .dialog h2 {
-  color: #22d3ee;
+  color: #a855f7;
   font-size: 22px;
-  margin: 0 0 10px;
-  text-shadow: 0 0 6px rgba(34,211,238,0.6);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(168,85,247,0.8);
 }
 .dialog p {
-  color: #B7BDC8;
+  color: #bfc4d6;
   font-size: 14px;
   margin-bottom: 18px;
 }
 
 .features {
-  background: rgba(15,23,42,0.7);
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(147, 51, 234, 0.2);
   border-radius: 12px;
-  padding: 10px;
+  padding: 12px;
   text-align: left;
+  margin-bottom: 18px;
 }
 .feature {
   display: flex;
@@ -65,43 +67,27 @@ canvas {
 .feature span {
   margin-left: 8px;
 }
-.more {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #93c5fd;
-  cursor: pointer;
-  transition: color .2s;
-}
-.more:hover { color: #60a5fa; }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 18px;
-}
 .btn {
-  flex: 1;
-  margin: 0 5px;
-  padding: 10px;
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #8b5cf6, #6366f1, #3b82f6);
   border: none;
   border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
-  background: linear-gradient(90deg, #2563eb, #38bdf8);
   color: white;
-  box-shadow: 0 0 12px rgba(56,189,248,0.3);
-  transition: transform .2s, box-shadow .3s;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(147,51,234,0.5);
+  transition: transform 0.2s ease, box-shadow 0.4s ease;
+  animation: pulse 2.5s infinite ease-in-out;
+  text-decoration: none;
 }
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 16px rgba(34,211,238,0.6);
-}
-.btn.close {
-  background: linear-gradient(90deg, #6b7280, #9ca3af);
-  box-shadow: 0 0 12px rgba(156,163,175,0.25);
-}
-.btn.breath {
-  animation: breath 2.5s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(147,51,234,0.7);
 }
 
 .status {
@@ -109,17 +95,17 @@ canvas {
   top: 10px;
   right: 14px;
   font-size: 12px;
-  color: #38bdf8;
-  text-shadow: 0 0 8px rgba(56,189,248,0.6);
+  color: #a855f7;
+  text-shadow: 0 0 10px rgba(147,51,234,0.6);
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
-@keyframes breath {
-  0%, 100% { box-shadow: 0 0 10px rgba(56,189,248,0.4); }
-  50% { box-shadow: 0 0 25px rgba(34,211,238,0.7); }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(147,51,234,0.5); }
+  50% { box-shadow: 0 0 30px rgba(168,85,247,0.8); }
 }
 </style>
 </head>
@@ -127,38 +113,20 @@ canvas {
 <canvas id="particles"></canvas>
 
 <div class="dialog">
-  <div class="status">Premium Active ✨</div>
+  <div class="status">Premium ✨</div>
   <h2>GxWelcome</h2>
-  <p>Selamat datang di versi anime mode 🌸</p>
+  <p>Terima kasih telah menggunakan versi Premium tanpa iklan.<br>Semua fitur video telah diperbaiki 💫</p>
 
   <div class="features">
-    <div class="feature">🌟 <span>Unlock 1080p Resolution</span></div>
-    <div class="feature">🚫 <span>Remove Ads</span></div>
-    <div class="feature">⭐ <span>Premium Unlocked</span></div>
+    <div class="feature">💎 <span>Premium Aktif</span></div>
+    <div class="feature">🚫 <span>Tanpa Iklan</span></div>
+    <div class="feature">🎬 <span>Fix Ghost Video</span></div>
   </div>
 
-  <div class="more" onclick="toggleMore()">More Features ▼</div>
-  <div id="moreList" class="features" style="display:none;">
-    <div class="feature">💫 <span>Login Google Support</span></div>
-    <div class="feature">💾 <span>Multi Download</span></div>
-    <div class="feature">🧩 <span>Disable Tracker</span></div>
-  </div>
-
-  <div class="buttons">
-    <button class="btn breath">Join Channel</button>
-    <button class="btn close" onclick="closeDialog()">Close</button>
-  </div>
+  <a class="btn" href="https://t.me/gxmods" target="_blank" rel="noopener noreferrer">Join Telegram</a>
 </div>
 
 <script>
-function toggleMore() {
-  const more = document.getElementById('moreList');
-  more.style.display = more.style.display === 'none' ? 'block' : 'none';
-}
-function closeDialog() {
-  document.querySelector('.dialog').style.display = 'none';
-}
-
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -170,13 +138,13 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 70; i++) {
   particles.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     r: Math.random() * 2 + 1,
     dy: Math.random() * 0.4 + 0.2,
-    color: `rgba(56,189,248,${Math.random() * 0.8 + 0.2})`
+    color: `rgba(${120 + Math.random()*80}, ${50 + Math.random()*100}, ${200 + Math.random()*55}, ${Math.random() * 0.7 + 0.3})`
   });
 }
 
