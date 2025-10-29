@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GxWelcome Anime Style</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 30%, #0f172a 0%, #020617 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #E5E7EB;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.dialog {
+  position: relative;
+  z-index: 1;
+  width: 360px;
+  background: rgba(31, 41, 55, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(16,185,129,0.25), 0 0 50px rgba(56,189,248,0.2);
+  padding: 26px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  animation: fadeIn 0.8s ease;
+}
+.dialog h2 {
+  color: #22d3ee;
+  font-size: 22px;
+  margin: 0 0 10px;
+  text-shadow: 0 0 6px rgba(34,211,238,0.6);
+}
+.dialog p {
+  color: #B7BDC8;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.features {
+  background: rgba(15,23,42,0.7);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: left;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 14px;
+}
+.feature span {
+  margin-left: 8px;
+}
+.more {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #93c5fd;
+  cursor: pointer;
+  transition: color .2s;
+}
+.more:hover { color: #60a5fa; }
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+.btn {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  color: white;
+  box-shadow: 0 0 12px rgba(56,189,248,0.3);
+  transition: transform .2s, box-shadow .3s;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(34,211,238,0.6);
+}
+.btn.close {
+  background: linear-gradient(90deg, #6b7280, #9ca3af);
+  box-shadow: 0 0 12px rgba(156,163,175,0.25);
+}
+.btn.breath {
+  animation: breath 2.5s ease-in-out infinite;
+}
+
+.status {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 12px;
+  color: #38bdf8;
+  text-shadow: 0 0 8px rgba(56,189,248,0.6);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes breath {
+  0%, 100% { box-shadow: 0 0 10px rgba(56,189,248,0.4); }
+  50% { box-shadow: 0 0 25px rgba(34,211,238,0.7); }
+}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<div class="dialog">
+  <div class="status">Premium Active ✨</div>
+  <h2>GxWelcome</h2>
+  <p>Selamat datang di versi anime mode 🌸</p>
+
+  <div class="features">
+    <div class="feature">🌟 <span>Unlock 1080p Resolution</span></div>
+    <div class="feature">🚫 <span>Remove Ads</span></div>
+    <div class="feature">⭐ <span>Premium Unlocked</span></div>
+  </div>
+
+  <div class="more" onclick="toggleMore()">More Features ▼</div>
+  <div id="moreList" class="features" style="display:none;">
+    <div class="feature">💫 <span>Login Google Support</span></div>
+    <div class="feature">💾 <span>Multi Download</span></div>
+    <div class="feature">🧩 <span>Disable Tracker</span></div>
+  </div>
+
+  <div class="buttons">
+    <button class="btn breath">Join Channel</button>
+    <button class="btn close" onclick="closeDialog()">Close</button>
+  </div>
+</div>
+
+<script>
+function toggleMore() {
+  const more = document.getElementById('moreList');
+  more.style.display = more.style.display === 'none' ? 'block' : 'none';
+}
+function closeDialog() {
+  document.querySelector('.dialog').style.display = 'none';
+}
+
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+for (let i = 0; i < 60; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dy: Math.random() * 0.4 + 0.2,
+    color: `rgba(56,189,248,${Math.random() * 0.8 + 0.2})`
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let p of particles) {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+    p.y += p.dy;
+    if (p.y > canvas.height) p.y = -10;
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>
